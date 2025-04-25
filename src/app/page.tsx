@@ -16,8 +16,8 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import TextareaAutosize from "react-textarea-autosize";
-import { Button } from "@/shared/ui/Button";
 import clsx from "clsx";
+import { IconButton } from "@/shared/ui/IconButton";
 
 const stories = [
     {
@@ -94,18 +94,12 @@ export default function Home() {
                         </div>
 
                         <div className="flex justify-end space-x-2">
-                            <button
-                                type="button"
-                                className="size-10 flex justify-center items-center border border-[#CBD5E1] rounded-full cursor-pointer hocus:bg-purple hocus:text-white hocus:border-purple transition-[border-color_color_background] outline-none"
-                            >
+                            <IconButton variant="outline" transition="filling">
                                 <Smile />
-                            </button>
-                            <button
-                                type="button"
-                                className="size-10 flex justify-center items-center border border-[#CBD5E1] rounded-full cursor-pointer hocus:bg-purple hocus:text-white hocus:border-purple transition-[border-color_color_background] outline-none"
-                            >
+                            </IconButton>
+                            <IconButton variant="outline" transition="filling">
                                 <Mic />
-                            </button>
+                            </IconButton>
                             <button className="flex items-center justify-center gap-2 px-4 h-10 bg-purple text-white rounded-full cursor-pointer border border-purple hocus:bg-white hocus:text-purple hocus:border-[#CBD5E1] transition-[border-color_color_background] text-sm font-bold outline-none">
                                 Post
                                 <SendHorizontal />
@@ -136,12 +130,12 @@ export default function Home() {
                                 </p>
                             </div>
 
-                            <div>
+                            <IconButton>
                                 <EllipsisVertical
                                     className="text-[#CBD5E1]"
                                     size={20}
                                 />
-                            </div>
+                            </IconButton>
                         </div>
 
                         {/* пост.контент */}
@@ -193,10 +187,9 @@ export default function Home() {
                                 </button>
                             </div>
 
-                            <Bookmark
-                                size={20}
-                                className="text-lightgray cursor-pointer hover:opacity-80 transition-[opacity]"
-                            />
+                            <IconButton>
+                                <Bookmark size={20} />
+                            </IconButton>
                         </div>
                     </div>
 
@@ -220,12 +213,12 @@ export default function Home() {
                                 </p>
                             </div>
 
-                            <div>
+                            <IconButton>
                                 <EllipsisVertical
                                     className="text-[#CBD5E1]"
                                     size={20}
                                 />
-                            </div>
+                            </IconButton>
                         </div>
 
                         {/* пост.контент */}
@@ -269,10 +262,9 @@ export default function Home() {
                                 </button>
                             </div>
 
-                            <Bookmark
-                                size={20}
-                                className="text-lightgray cursor-pointer hover:opacity-80 transition-[opacity]"
-                            />
+                            <IconButton>
+                                <Bookmark size={20} />
+                            </IconButton>
                         </div>
                     </div>
                 </div>

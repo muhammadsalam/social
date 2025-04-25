@@ -1,39 +1,18 @@
 import React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
-const button = cva("button", {
+const button = cva("flex items-center justify-center gap-2", {
     variants: {
-        intent: {
-            icon: [""],
-            primary: ["bg-blue-500", "text-white", "border-transparent"],
-            secondary: ["bg-white", "text-gray-800", "border-gray-400"],
-        },
-        size: {
-            small: ["text-sm", "py-1", "px-2"],
-            medium: ["text-base", "py-2", "px-4"],
+        variant: {
+            primary: [""],
         },
         disabled: {
             false: null,
-            true: ["opacity-50", "cursor-not-allowed"],
+            true: ["opacity-50", "cursor-default"],
         },
     },
-    compoundVariants: [
-        {
-            intent: "primary",
-            disabled: false,
-            class: "hover:bg-blue-600",
-        },
-        {
-            intent: "secondary",
-            disabled: false,
-            class: "hover:bg-gray-100",
-        },
-        { intent: "primary", size: "medium", class: "uppercase" },
-    ],
     defaultVariants: {
         disabled: false,
-        intent: "primary",
-        size: "medium",
     },
 });
 
@@ -43,13 +22,11 @@ export interface ButtonProps
 
 export const Button: React.FC<ButtonProps> = ({
     className,
-    intent,
-    size,
     disabled,
     ...props
 }) => (
     <button
-        className={button({ intent, size, disabled, className })}
+        className={button({ disabled, className })}
         disabled={disabled || undefined}
         {...props}
     />
