@@ -33,27 +33,27 @@ const NavigationInfo = [
         Icon: ({ ...props }) => <Users {...props} />,
         isDisabled: false,
     },
-    {
-        link: "/api",
-        title: "APIs",
-        notification: 0,
-        Icon: ({ ...props }) => <Box {...props} />,
-        isDisabled: true,
-    },
-    {
-        link: "/subscription",
-        title: "Subscription",
-        notification: 0,
-        Icon: ({ ...props }) => <CreditCard {...props} />,
-        isDisabled: true,
-    },
-    {
-        link: "/settings",
-        title: "Settings",
-        notification: 0,
-        Icon: ({ ...props }) => <Settings {...props} />,
-        isDisabled: false,
-    },
+    // {
+    //     link: "/api",
+    //     title: "APIs",
+    //     notification: 0,
+    //     Icon: ({ ...props }) => <Box {...props} />,
+    //     isDisabled: true,
+    // },
+    // {
+    //     link: "/subscription",
+    //     title: "Subscription",
+    //     notification: 0,
+    //     Icon: ({ ...props }) => <CreditCard {...props} />,
+    //     isDisabled: true,
+    // },
+    // {
+    //     link: "/settings",
+    //     title: "Settings",
+    //     notification: 0,
+    //     Icon: ({ ...props }) => <Settings {...props} />,
+    //     isDisabled: false,
+    // },
 ];
 
 const Header = () => {
