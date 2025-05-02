@@ -1,15 +1,6 @@
 import { IconButton } from "@/shared/ui/IconButton";
 import { Logo } from "@/shared/ui/Logo";
-import {
-    Box,
-    CreditCard,
-    Home,
-    LogOut,
-    MessageCircleMore,
-    Search,
-    Settings,
-    Users,
-} from "lucide-react";
+import { Home, LogOut, MessageCircleMore, Search, Users } from "lucide-react";
 import Image from "next/image";
 
 const NavigationInfo = [
@@ -34,27 +25,6 @@ const NavigationInfo = [
         Icon: ({ ...props }) => <Users {...props} />,
         isDisabled: false,
     },
-    // {
-    //     link: "/api",
-    //     title: "APIs",
-    //     notification: 0,
-    //     Icon: ({ ...props }) => <Box {...props} />,
-    //     isDisabled: true,
-    // },
-    // {
-    //     link: "/subscription",
-    //     title: "Subscription",
-    //     notification: 0,
-    //     Icon: ({ ...props }) => <CreditCard {...props} />,
-    //     isDisabled: true,
-    // },
-    // {
-    //     link: "/settings",
-    //     title: "Settings",
-    //     notification: 0,
-    //     Icon: ({ ...props }) => <Settings {...props} />,
-    //     isDisabled: false,
-    // },
 ];
 
 const Header = () => {

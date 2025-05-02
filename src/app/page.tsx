@@ -19,7 +19,7 @@ import TextareaAutosize from "react-textarea-autosize";
 import clsx from "clsx";
 import { IconButton } from "@/shared/ui/IconButton";
 import { Button } from "@/shared/ui/Button";
-import Profile from "@/widgets/Profile";
+// import Profile from "@/widgets/Profile";
 
 const stories = [
     {
@@ -60,8 +60,11 @@ export default function Home() {
                         spaceBetween={16}
                         slidesPerView="auto"
                     >
-                        {stories.map((story) => (
-                            <SwiperSlide className="flex! flex-col items-center gap-1 group cursor-pointer w-auto!">
+                        {stories.map((story, index) => (
+                            <SwiperSlide
+                                className="flex! flex-col items-center gap-1 group cursor-pointer w-auto!"
+                                key={story.name + index}
+                            >
                                 <div className="p-[2px] inline-block rounded-full bg-radial-[at_0%_50%] from-purple from-13% via-[#C622FF] via-[#FF2222] via-65% to-[#FFA439]">
                                     <Image
                                         src={story.avatar}
