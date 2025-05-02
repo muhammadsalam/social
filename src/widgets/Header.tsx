@@ -1,3 +1,4 @@
+import { IconButton } from "@/shared/ui/IconButton";
 import { Logo } from "@/shared/ui/Logo";
 import {
     Box,
@@ -108,7 +109,9 @@ const Header = () => {
                     </span>
                 </div>
 
-                <LogOut className="text-gray ml-auto cursor-pointer hover:text-[crimson] transition-[color]" />
+                <IconButton className="ml-auto hover:text-[crimson]">
+                    <LogOut />
+                </IconButton>
             </div>
         </header>
     );

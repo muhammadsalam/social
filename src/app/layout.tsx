@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/widgets/Header";
 import clsx from "clsx";
+import Profile from "@/widgets/Profile";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
     variable: "--font-plus-jakarta-sans",
@@ -28,6 +29,7 @@ export default function RootLayout({
             >
                 <Header />
                 {children}
+                <Profile />
             </body>
         </html>
     );

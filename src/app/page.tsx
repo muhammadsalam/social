@@ -18,6 +18,8 @@ import { useState } from "react";
 import TextareaAutosize from "react-textarea-autosize";
 import clsx from "clsx";
 import { IconButton } from "@/shared/ui/IconButton";
+import { Button } from "@/shared/ui/Button";
+import Profile from "@/widgets/Profile";
 
 const stories = [
     {
@@ -100,10 +102,9 @@ export default function Home() {
                             <IconButton variant="outline" transition="filling">
                                 <Mic />
                             </IconButton>
-                            <button className="flex items-center justify-center gap-2 px-4 h-10 bg-purple text-white rounded-full cursor-pointer border border-purple hocus:bg-white hocus:text-purple hocus:border-[#CBD5E1] transition-[border-color_color_background] text-sm font-bold outline-none">
-                                Post
-                                <SendHorizontal />
-                            </button>
+                            <Button transition="fill" variant="primary">
+                                Post <SendHorizontal />
+                            </Button>
                         </div>
                     </form>
                 </label>
@@ -269,8 +270,6 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-
-            <div className="p-4 border-l border-border-gray max-w-92 w-full"></div>
         </main>
     );
 }
