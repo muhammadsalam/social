@@ -6,6 +6,7 @@ import clsx from "clsx";
 import Profile from "@/widgets/Profile";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
+    subsets: ["latin"],
     variable: "--font-plus-jakarta-sans",
 });
 
