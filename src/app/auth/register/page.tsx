@@ -20,6 +20,8 @@ export default function RegisterForm() {
             });
     };
 
+    console.log(setLoading, setError);
+
     return (
         <form
             onSubmit={handleSubmit}

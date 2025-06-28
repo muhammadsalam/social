@@ -1,7 +1,5 @@
 "use client";
 
-import { supabase } from "@/shared/api/supabaseClient";
-
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";

@@ -13,6 +13,8 @@ export default function LoginForm() {
         // login(email, password);
     };
 
+    console.log(setLoading, setError);
+
     return (
         <form
             onSubmit={handleSubmit}
