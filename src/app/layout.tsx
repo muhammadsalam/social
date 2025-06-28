@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import Header from "@/widgets/Header";
 import clsx from "clsx";
-import Profile from "@/widgets/Profile";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
     subsets: ["latin"],
@@ -25,12 +23,10 @@ export default function RootLayout({
             <body
                 className={clsx(
                     plusJakartaSans.variable,
-                    "flex shrink-2 min-h-full"
+                    "flex shrink-2 min-h-screen"
                 )}
             >
-                <Header />
                 {children}
-                <Profile />
             </body>
         </html>
     );
