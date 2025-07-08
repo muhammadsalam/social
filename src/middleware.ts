@@ -1,48 +1,24 @@
-import { NextRequest, NextResponse } from "next/server"
-import { Routes } from "@/shared/config/routes";
-import { updateSession } from "@/shared/utils/supabase/middleware";
+import { NextRequest, NextResponse } from 'next/server'
+import { auth } from './app/providers/auth';
+import { Routes } from './shared/config/routes';
 
-const publicRoutes = [Routes.AUTH_LOGIN, Routes.AUTH_REGISTER, Routes.AUTH_CONFIRM, Routes.HOME, '/auth/register/123'];
+const protectedRoutes = ["/"]
 
 export async function middleware(request: NextRequest) {
-    try {
-        const response = await updateSession(request);
+    const session = await auth();
 
-        const { pathname } = request.nextUrl;
-        const isPublicRoute = publicRoutes.includes(pathname as Routes);
+    const { pathname } = request.nextUrl
 
-        const token = request.cookies.get('sb-access-token')?.value;
+    const isProtected = protectedRoutes.some(route => pathname.startsWith(route))
 
-        // Если пользователь не авторизован и пытается получить доступ к НЕпубличному адресу
-        if (!token && !isPublicRoute) {
-            const url = new URL(Routes.AUTH_LOGIN, request.url);
-            // тут можно добавить параметр from, чтобы перенаправить пользователя на ту страницу, которую он пытался получить
-            return NextResponse.redirect(url);
-        }
-
-        if (token && isPublicRoute) {
-            const url = new URL(Routes.HOME, request.url);
-            return NextResponse.redirect(url);
-        }
-
-        return response;
-    } catch (error) {
-        console.error(error);
-        return NextResponse.next();
+    if (isProtected && !session) {
+        return NextResponse.redirect(new URL(Routes.AUTH_LOGIN))
     }
+
+    return NextResponse.next()
 }
 
-// Конфигурация middleware
-export const config = {
-    matcher: [
-        /*
-         * Match all request paths except for the ones starting with:
-         * - api (API routes)
-         * - _next/static (static files)
-         * - _next/image (image optimization files)
-         * - favicon.ico (favicon file)
-         * - public files
-         */
-        '/((?!api|_next/static|_next/image|favicon.ico|public).*)',
-    ],
-} 
+// See "Matching Paths" below to learn more
+// export const config = {
+//     // matcher: '/:path*',
+// }

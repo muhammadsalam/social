@@ -1,8 +1,7 @@
 export enum Routes {
     HOME = '/',
-    AUTH_LOGIN = '/auth/login',
-    AUTH_REGISTER = '/auth/register',
-    AUTH_CONFIRM = '/auth/confirm',
-    FEED = '/feed',
+    AUTH_LOGIN = '/login',
+    AUTH_REGISTER = '/register',
+    AUTH_CONFIRM = '/confirm',
     // Добавляй сюда другие маршруты по мере необходимости
 }

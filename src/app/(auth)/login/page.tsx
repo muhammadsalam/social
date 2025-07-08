@@ -1,8 +1,11 @@
 "use client";
+
 import Link from "next/link";
 import { useState } from "react";
 
-export default function LoginForm() {
+import { login } from "@/feautres/auth/login";
+
+export default async function LoginForm() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [email, setEmail] = useState("");
@@ -12,8 +15,6 @@ export default function LoginForm() {
         e.preventDefault();
         // login(email, password);
     };
-
-    console.log(setLoading, setError);
 
     return (
         <form
@@ -55,6 +56,14 @@ export default function LoginForm() {
                     Sign up
                 </Link>
             </div>
+
+            <button
+                type="button"
+                className="bg-purple-500 text-white font-bold py-2 px-4 rounded cursor-pointer"
+                onClick={login}
+            >
+                SIGN IN WITH GITHUB
+            </button>
         </form>
     );
 }

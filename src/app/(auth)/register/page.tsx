@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { register } from "@/feautres/auth/register";
+// import { register } from "@/feautres/auth/register";
 
 export default function RegisterForm() {
     const [loading, setLoading] = useState(false);
@@ -11,13 +11,13 @@ export default function RegisterForm() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        register(email, password)
-            .then((data) => {
-                console.log("register", data);
-            })
-            .catch((error) => {
-                console.log("error", error);
-            });
+        // register(email, password)
+        //     .then((data) => {
+        //         console.log("register", data);
+        //     })
+        //     .catch((error) => {
+        //         console.log("error", error);
+        //     });
     };
 
     console.log(setLoading, setError);
