@@ -1,7 +1,7 @@
-import { IconButton } from "@/shared/ui/IconButton";
 import { Logo } from "@/shared/ui/Logo";
-import { Home, LogOut, MessageCircleMore, Search, Users } from "lucide-react";
-import Image from "next/image";
+import { Home, MessageCircleMore, Search, Users } from "lucide-react";
+import { HeaderFooter } from "./header-footer";
+import { cookies } from "next/headers";
 
 const NavigationInfo = [
     {
@@ -63,26 +63,7 @@ const Header = () => {
                 </ul>
             </nav>
 
-            <div className="border-t border-border-gray mt-auto pt-4 flex items-center">
-                <Image
-                    src="/assets/avatar.jpg"
-                    width={40}
-                    height={40}
-                    alt="avatar"
-                    className="rounded-full"
-                />
-
-                <div className="flex flex-col ml-3">
-                    <strong>Azunyan U. Wu</strong>
-                    <span className="text-sm text-gray font-medium">
-                        Basic Member
-                    </span>
-                </div>
-
-                <IconButton className="ml-auto hover:text-[crimson]">
-                    <LogOut />
-                </IconButton>
-            </div>
+            <HeaderFooter />
         </header>
     );
 };

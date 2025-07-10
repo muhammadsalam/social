@@ -1,20 +1,43 @@
 "use client";
 
+import { Github } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
-import { login } from "@/feautres/auth/login";
+// import { login } from "@/feautres/auth/login";
 
-export default async function LoginForm() {
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
+export default function LoginForm() {
+    const [loading] = useState(false);
+    const [error] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // login(email, password);
     };
+
+    const loginWithGithub = () => {
+        const params = new URLSearchParams({
+            client_id: process.env.NEXT_PUBLIC_GITHUB_ID || "",
+            redirect_url: "http://localhost:3000/api/auth/callback",
+            scope: "read:user user:email",
+        });
+
+        window.location.href = `https://github.com/login/oauth/authorize?${params.toString()}`;
+    };
+
+    return (
+        <div className="h-screen w-screen flex justify-center items-center">
+            <button
+                type="button"
+                className="bg-purple-500 text-white font-bold py-2 px-4 rounded cursor-pointer flex items-center justify-center gap-2"
+                onClick={loginWithGithub}
+            >
+                <Github />
+                SIGN IN WITH GITHUB
+            </button>
+        </div>
+    );
 
     return (
         <form
@@ -59,9 +82,10 @@ export default async function LoginForm() {
 
             <button
                 type="button"
-                className="bg-purple-500 text-white font-bold py-2 px-4 rounded cursor-pointer"
-                onClick={login}
+                className="bg-purple-500 text-white font-bold py-2 px-4 rounded cursor-pointer flex items-center justify-center gap-2"
+                onClick={loginWithGithub}
             >
+                <Github />
                 SIGN IN WITH GITHUB
             </button>
         </form>
