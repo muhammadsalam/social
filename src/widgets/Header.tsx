@@ -1,7 +1,6 @@
 import { Logo } from "@/shared/ui/Logo";
 import { Home, MessageCircleMore, Search, Users } from "lucide-react";
 import { HeaderFooter } from "./header-footer";
-import { cookies } from "next/headers";
 
 const NavigationInfo = [
     {
